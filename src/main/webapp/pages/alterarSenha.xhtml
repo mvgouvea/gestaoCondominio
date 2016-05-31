@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	
+	<ui:define name="heading"><h:outputText value="#{msg.TITULO_ALTERAR_SENHA}"/></ui:define>
+	
+	<ui:define name="content">
+		<p:outputPanel id="panelSenha">
+			<p class="descricao">#{msg.LABEL_INF_ALTERAR_SENHA}</p>
+		
+			<div class="form-group">
+				<div class="col-lg-5">
+					<h:outputLabel for="txtSenha" value="#{msg.LABEL_NOVA_SENHA}" styleClass="required" />
+					<p:password id="txtSenha" value="#{gerenciarPerfilController.novaSenha}" styleClass="form-control" maxlength="15"/>
+				</div>
+				
+				<div class="col-lg-5">
+					<h:outputLabel for="txtConfirmarSenha" value="#{msg.LABEL_CONFIRMAR_SENHA}" styleClass="required" />
+					<p:password id="txtConfirmarSenha" value="#{gerenciarPerfilController.confirmacaoSenha}" styleClass="form-control" maxlength="15"/>
+				</div>
+				
+				<div class="col-lg-2 empty-block">
+					<div class="text-right">
+						<p:commandButton action="#{gerenciarPerfilController.redirecionarPaginaPrincipal()}" value="#{msg.LABEL_CANCELAR}" styleClass="btn btn-danger"/>
+
+						<p:commandButton action="#{gerenciarPerfilController.salvarSenha()}" value="#{msg.LABEL_ALTERAR}" styleClass="btn btn-primary" update="panelSenha"/>
+					</div>
+				</div>
+			</div>
+		</p:outputPanel>
+	</ui:define>
+</ui:composition>

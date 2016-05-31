@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2016 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="balance" unicode="&#xe800;" d="m167 433v-291h125v291h-125z m250 0v-291h125v291h-125z m-334-500h792v125h-792v-125z m584 500v-291h125v291h-125z m-188 375l-396-208v-83h792v83l-396 208z" horiz-adv-x="1000" />
+<glyph glyph-name="home" unicode="&#xe801;" d="m417 17v250h166v-250h209v333h125l-417 375-417-375h125v-333z" horiz-adv-x="1000" />
+<glyph glyph-name="build" unicode="&#xe802;" d="m946 60l-381 382c37 96 16 210-61 287-83 84-208 100-308 52l181-181-127-127-181 181c-48-100-31-225 52-308 77-77 192-98 287-61l382-381c16-17 43-17 58 0l98 98c17 15 17 42 0 58z" horiz-adv-x="1000" />
+<glyph glyph-name="user" unicode="&#xe803;" d="m500 604c48 0 88-39 88-87s-40-88-88-88-87 39-87 88 39 87 87 87m0-375c124 0 254-60 254-87v-46h-508v46c0 27 130 87 254 87m0 454c-92 0-167-74-167-166 0-92 75-167 167-167s167 75 167 167c0 92-75 166-167 166z m0-375c-111 0-333-55-333-166v-125h666v125c0 111-222 166-333 166z" horiz-adv-x="1000" />
+<glyph glyph-name="sms" unicode="&#xe804;" d="m833 767h-666c-46 0-83-38-83-84l-1-750 167 167h583c46 0 84 37 84 83v500c0 46-38 84-84 84z m-458-375h-83v83h83v-83z m167 0h-84v83h84v-83z m166 0h-83v83h83v-83z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

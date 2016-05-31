@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<p:ajaxStatus onstart="PF('loadingPanel').show();" onsuccess="PF('loadingPanel').hide(); Util.carregar();"/>
+
+	<p:dialog id="teste" widgetVar="loadingPanel" modal="true" header="#{msg.TITULO_AGUARDE}" resizable="false" draggable="false" closable="false" width="200" height="70">
+	    <p class="text-center m-t-15">
+	    	 <p:graphicImage value="/resources/images/ajax-loader.gif" /> 
+	    </p>
+	</p:dialog>
+</ui:component>

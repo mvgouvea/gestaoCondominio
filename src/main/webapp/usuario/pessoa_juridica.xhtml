@@ -1,0 +1,45 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+   	<div class="form-group">
+		<div class="col-lg-6">
+			<h:outputLabel for="txtNomeJuridica" value="#{msg.LABEL_NOME}" styleClass="required" />
+			<h:inputText id="txtNomeJuridica" value="#{CONTROLLER.usuario.pessoa.nome}" styleClass="form-control"/>
+		</div>
+		
+		<div class="col-lg-6">
+			<h:outputLabel for="txtRazaoSocial" value="#{msg.LABEL_RAZAO_SOCIAL}" styleClass="required" />
+			<h:inputText id="txtRazaoSocial" value="#{CONTROLLER.usuario.pessoa.sobrenome}" styleClass="form-control"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-lg-6">
+			<div class="col-lg-8">
+				<h:outputLabel for="txtEmailJuridica" value="#{msg.LABEL_EMAIL}" styleClass="required" />
+				<h:inputText id="txtEmailJuridica" value="#{CONTROLLER.usuario.email}" styleClass="form-control" maxlength="100"/>
+			</div>
+			<div class="col-lg-4">
+				<h:outputLabel for="txtTelefoneJuridica" value="#{msg.LABEL_TELEFONE}" styleClass="required" />
+				<h:inputText id="txtTelefoneJuridica" value="#{CONTROLLER.usuario.pessoa.telefone}" styleClass="form-control mask-telefone"/>
+			</div>
+		</div>
+
+		<div class="col-lg-6">
+			<div class="col-lg-5">
+				<h:outputLabel for="txtCNPJ" value="#{msg.LABEL_CNPJ}" styleClass="required" />
+				<h:inputText id="txtCNPJ" value="#{CONTROLLER.usuario.pessoa.cnpj}" styleClass="form-control mask-cnpj"/>
+			</div>
+			
+			<div class="col-lg-7">
+				<h:outputLabel for="txtCEPJuridica" value="#{msg.LABEL_CEP}" styleClass="required" />
+				<h:inputText id="txtCEPJuridica" value="#{CONTROLLER.usuario.pessoa.cep}" styleClass="form-control mask-cep">
+					<f:ajax event="change" listener="#{CONTROLLER.buscarEndereco()}" render="panelEndereco"/>
+				</h:inputText>
+			</div>
+		</div>
+	</div>
+</ui:component>

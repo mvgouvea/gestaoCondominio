@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	
+	<ui:define name="breadcrumb">
+		<li class="active">#{msg.MENU_USUARIOS}</li>
+		<li class="active">#{msg.MENU_GRUPOS}</li>
+	</ui:define>
+	
+	<ui:define name="heading">
+		<h:outputText value="#{msg.TITULO_LISTAR_USUARIO}" rendered="#{usuarioController.listar}"/>
+		<h:outputText value="#{msg.LABEL_NOVO} #{usuarioController.perfil.descricao}" rendered="#{usuarioController.incluir}"/>
+		<h:outputText value="#{msg.LABEL_ALTERAR} #{usuarioController.perfil.descricao}" rendered="#{usuarioController.alterar}"/>
+	</ui:define>
+	
+	<ui:define name="content">
+		<p:outputPanel id="panelPesquisa">
+			<p:outputPanel rendered="#{usuarioController.listar}">
+				<p class="descricao">#{msg.LABEL_INF_USUARIO}</p>
+			
+				<ui:include src="/usuario/pesquisa_usuario.xhtml"/>	    
+			</p:outputPanel>
+		</p:outputPanel>
+	
+		<p:outputPanel id="panelCadastro">
+			<p:outputPanel rendered="#{usuarioController.incluir or usuarioController.alterar}">
+				<!-- Formulário de Cadastro -->
+				<ui:include src="/usuario/cadastro_usuario.xhtml">
+					<ui:param name="CONTROLLER" value="#{usuarioController}"/>
+				</ui:include>
+				
+				<!-- Ações do Cadastro -->
+				<div class="pull-right">
+					<p:commandButton action="#{usuarioController.cancelar()}" value="#{msg.LABEL_CANCELAR}" styleClass="btn btn-danger"
+						update="panelTitulo, panelPesquisa, panelCadastro"/>
+				
+					<p:commandButton action="#{usuarioController.salvar()}" value="#{usuarioController.incluir ? msg.LABEL_INSERIR : msg.LABEL_ALTERAR}"
+						styleClass="btn #{usuarioController.incluir ? 'btn-primary' : 'btn-info'}" update="panelTitulo, panelPesquisa, panelCadastro"/>
+				</div>
+			</p:outputPanel>
+		</p:outputPanel>
+	</ui:define>
+</ui:composition>

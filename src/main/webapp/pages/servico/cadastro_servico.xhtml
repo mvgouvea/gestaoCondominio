@@ -1,0 +1,28 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<div class="form-group">
+		<div class="col-lg-4">
+			<h:outputLabel for="txtServico" value="#{msg.LABEL_SERVICO}" styleClass="required" />
+			<h:inputText id="txtServico" value="#{servicoController.servico.nome}" styleClass="form-control" maxlength="40"/>
+		</div>
+		
+		<div class="col-lg-6">
+			<h:outputLabel for="txtDescricao" value="#{msg.LABEL_DESCRICAO}" styleClass="required" />
+			<h:inputText id="txtDescricao" value="#{servicoController.servico.descricao}" styleClass="form-control" maxlength="70"/>
+		</div>
+		
+		<div class="col-lg-2 empty-block">
+			<div class="text-right">
+				<p:commandButton action="#{servicoController.cancelar()}" rendered="#{servicoController.alterar}"
+					value="#{msg.LABEL_CANCELAR}" styleClass="btn btn-danger" update="panelServico"/>
+
+				<p:commandButton action="#{servicoController.salvar()}"
+					value="#{servicoController.alterar ? msg.LABEL_SALVAR : msg.LABEL_INSERIR}" styleClass="btn btn-info" update="panelServico"/>
+			</div>
+		</div>
+	</div>
+</ui:component>

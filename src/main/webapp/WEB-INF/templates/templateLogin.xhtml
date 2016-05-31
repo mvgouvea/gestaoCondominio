@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<title>Bit Work - Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8;"/>
+
+		<!-- CSS -->
+		<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="#{request.contextPath}/resources/css/bitwork.css" rel="stylesheet" />
+		<link href="#{request.contextPath}/resources/css/custom.css" rel="stylesheet" />
+
+		<!-- JavaScript -->
+		<script type="text/javascript" src="#{request.contextPath}/resources/js/bootstrap.min.js"/>
+	</h:head>
+
+	<h:body>
+		<div class="header-login"/>
+		<div class="col-lg-12">
+			<div class="row">
+				<div class="col-md-6 col-lg-6">
+					<div class="logo-login">
+						<h:graphicImage value="#{resource['images/gadgets.png']}" width="90%"/>
+					</div>
+					
+					<div class="link-login">
+						<a href="inicio.jsf">#{msg.LABEL_COPYRIGHT_BITWORK}</a>
+						<a href="ajuda.jsf">#{msg.LABEL_AJUDA}</a>
+						<p:commandLink action="#{autenticarUsuarioController.recuperarSenha()}" value="#{msg.LABEL_RECUPERAR_SENHA}" update="frmPrincipal"/>
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-md-push-1 col-lg-4 col-lg-push-1">
+					<div class="logo-login">
+						<a href="index.jsf"><h:graphicImage value="#{resource['images/bitwork-lg.png']}" width="100%"/></a>
+					</div>
+					
+					<h:form id="frmPrincipal" styleClass="form-horizontal" prependId="false">
+      					<p:messages autoUpdate="true" closable="true" showIcon="false"/>
+   						<ui:insert name="content">[Template content will be inserted here]</ui:insert>
+        			</h:form>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-login"/>
+
+		<script type="text/javascript" src="#{request.contextPath}/resources/js/jquery-1.11.0.min.js"/>
+	</h:body>
+</html>

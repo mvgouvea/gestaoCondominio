@@ -1,0 +1,32 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<div class="form-table">
+		<p:dataTable value="#{servicoController.servicos}" var="servico" rendered="#{!empty servicoController.servicos}" paginator="true" rows="10"
+			paginatorPosition="bottom">
+		    
+		    <p:column headerText="#{msg.LABEL_SERVICO}" styleClass="col-lg-4">
+		        <h:outputText value="#{servico.nome}" />
+		    </p:column>
+		    
+		    <p:column headerText="#{msg.LABEL_DESCRICAO}" styleClass="col-lg-6">
+		        <h:outputText value="#{servico.descricao}" />
+		    </p:column>
+		    
+		    <p:column headerText="#{msg.LABEL_OPCOES}" styleClass="col-lg-2 text-center">
+				<p:commandButton action="#{servicoController.alterar(servico)}" value="#{msg.LABEL_ALTERAR}" styleClass="btn btn-primary"
+					update="panelServico"/>
+					
+				<p:commandButton action="#{servicoController.abrirModalExclusao()}" value="#{msg.LABEL_EXCLUIR}" 
+					styleClass="btn btn-danger" update="panelServico">
+					<f:setPropertyActionListener value="#{servico}" target="#{servicoController.servico}"/>
+				</p:commandButton>
+		    </p:column>
+		</p:dataTable>
+	</div>
+	
+	<ui:include src="servico/popup_excluir_servico.xhtml" />
+</ui:component>

@@ -1,0 +1,56 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+   	<p:tabView value="#{usuarioController.perfis}" var="perfil" styleClass="tabs">
+		<p:ajax event="tabChange" listener="#{usuarioController.listar}" update="panelPesquisa"/>
+		<p:tab title="#{perfil.descricao}">
+	       	<div class="form-group">
+				<div class="col-lg-6 col-lg-offset-4">
+					<div class="col-lg-9">
+						<p:inputText value="#{usuarioController.nome}" styleClass="form-control" placeholder="#{msg.LABEL_BUSCAR_POR}"
+							rendered="#{perfil.descricao.equals(usuarioController.perfil.descricao)}"/>
+					</div>
+					
+					<p:commandButton action="#{usuarioController.buscar()}" value="#{msg.LABEL_BUSCAR}" styleClass="btn btn-default"
+						update="panelPesquisa"/>
+				</div>
+		
+				<div class="col-lg-2">
+					<p class="text-right">
+						<p:commandButton action="#{usuarioController.novo()}" value="#{msg.LABEL_NOVO} #{perfil.descricao}" styleClass="btn btn-primary"
+							update="panelTitulo, panelPesquisa, panelCadastro"/>
+					</p>
+				</div>
+			</div>
+			
+			<div class="form-table">
+				<p:dataTable value="#{usuarioController.usuarios}" var="usuario" rendered="#{!empty usuarioController.usuarios}">
+				    
+				    <p:column headerText="#{msg.LABEL_NOME_USUARIO}" styleClass="col-lg-5">
+				        <h:outputText value="#{usuario.pessoa.nome}" />
+				    </p:column>
+				    
+				    <p:column headerText="#{msg.LABEL_EMAIL}" styleClass="col-lg-3 text-center">
+				        <h:outputText value="#{usuario.email}" />
+				    </p:column>
+				    
+				    <p:column headerText="#{msg.LABEL_TELEFONE}" styleClass="col-lg-2 text-center">
+				        <h:outputText value="#{usuarioController.getTelefoneFormatado(usuario.pessoa.telefone)}" />
+				    </p:column>
+				    
+			    	<p:column headerText="#{msg.LABEL_OPCOES}" styleClass="col-lg-2 text-center">
+				        <p:commandButton action="#{usuarioController.alterar(usuario)}" value="#{msg.LABEL_ALTERAR}" styleClass="btn btn-primary"
+							update="panelTitulo, panelPesquisa, panelCadastro"/>
+					
+						<p:commandButton action="#{usuarioController.alterarSituacao(usuario)}"
+							value="#{usuario.ativo ? msg.LABEL_INATIVAR : msg.LABEL_ATIVAR}" 
+							styleClass="btn #{usuario.ativo ? 'btn-danger' : 'btn-success'}" update="panelPesquisa"/>
+				    </p:column>
+				</p:dataTable>
+			</div>
+       </p:tab>
+   </p:tabView>
+</ui:component>

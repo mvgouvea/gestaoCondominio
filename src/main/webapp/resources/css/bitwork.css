@@ -1,0 +1,416 @@
+/*
+ * bitwork.css
+ * Copyright (c) BitWork.
+ *
+ * Este software é confidencial e propriedade da BitWork.
+ * Não é permitida sua distribuição ou divulgação do seu conteúdo sem expressa autorização da BitWork.
+ * Este arquivo contém informações proprietárias.
+ *
+ * Arquivo de customização geral do sistema.
+ * 
+ * @author BitWork.
+ */
+
+/**-- Gerais --*/
+body {
+	background: rgba(240, 240, 240, 0.3);
+	/*background: #F1F4F7;*/
+	color: #3C4144;
+	font-size: 12px !important;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+p { color: #777; }
+
+a, a:hover, a:focus { color: #3C4144; }
+
+h1, h2, h3, h4, h5, h6 { color: #5F6468; }
+
+h1, h2, h3, h4 { font-weight: 300; }
+
+h1 { font-size: 40px; }
+
+h2 { margin-bottom: 20px; }
+
+.descricao {
+	font-size: 12px;
+	text-align: justify;
+}
+
+
+/**-- Layout --*/
+/** Login*/
+.header-login, .footer-login {
+	height: 100px;
+	background: #2E6C5C url("../images/bg_abstract_verde.png");
+}
+	.footer-login {
+		position: absolute;
+		bottom: 0;
+	  	width: 100%;
+	 	background-position: bottom;
+	}
+	
+.logo-login {
+	padding-top: 30px;
+	text-align: center;
+}
+
+.title-login {
+	color: #1AAE88;
+    font-size: 18px;
+    padding: 20px 0 10px 0;
+}
+
+.link-login {
+	border-top: 1px solid rgba(26, 174, 136, 0.69);
+	text-align: center;
+    padding-top: 10px;
+}
+	.link-login a {
+		color: #777;
+		text-decoration: none;
+	}
+		.link-login a:not(:last-child):after {
+			content: '::';
+			padding: 0 5px;
+		}
+	
+/** Menu Lateral */
+.logo {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+.copyright {
+ 	font-size: 14px;
+ 	font-family: calibri;
+ 	padding: 10px;
+}
+
+/** Sidebar */
+.sidebar {
+    margin-top: 25px !important;
+}
+
+@media (min-width: 768px) {
+	.sidebar {
+		display: block;
+  		position: fixed;
+		top: 50px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color: #fff;
+		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
+	}
+
+	.navbar-header {
+		width: 100%;
+	}
+}
+
+	.sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover {
+		text-decoration: none;
+		background-color: #E9ECF2;
+	}
+
+	.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover,
+	.sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+		color: #FFF;
+		background-color: #1AAE88;
+	}
+		.sidebar ul.nav ul, .sidebar ul.nav ul li {
+			list-style: none;
+			list-style-type: none;
+		}
+
+	.sidebar ul.nav ul.children {
+		width: auto;
+		padding: 0;
+		margin: 0;
+		background: #F9F9F9;
+	}
+		.sidebar ul.nav ul.children li a {
+			height: 40px;
+			background: #F9F9F9;
+			color: #1AAE88 !important;
+		}
+
+		.sidebar ul.nav li.current a {
+			background-color: #30A5FF;
+			color: #FFF !important;
+		}
+			.sidebar ul.nav li.parent ul li a {
+				border: none;
+				display: block;
+				padding-left: 30px;
+				line-height: 40px;
+			}
+
+
+		.sidebar span.glyphicon {
+			margin-right: 10px;
+		}
+		
+		.sidebar ul.nav li.divider {
+			border-bottom: 1px solid #eee;
+			margin: 20px 0;
+		}
+
+/** Navbar */
+.navbar .user-menu {
+	display: inline-block;
+	margin-top: 14px;
+	margin-right: 10px;
+	float: right;
+	list-style: none;
+	padding: 0;
+}
+	.user-menu a {
+		color: #fff;
+	}
+		.user-menu a:hover, .user-menu a:focus {
+			text-decoration: none;
+		}
+
+/** Main */
+.main {
+	margin-top: 65px;
+}
+
+/**-- Formulário --*/
+
+/** Spacing - The classes are named using the format: {property}-{sides}-{size} */
+.m-l-0 {
+	margin-left: 0;
+}
+
+.m-t-15 {
+	margin-top: 15px;
+}
+
+.m-r-0 {
+	margin-right: 0;
+}
+
+.p-l-0 {
+	padding-left: 0;
+}
+
+.p-r-0 {
+	padding-right: 0;
+}
+
+.empty-block:before {
+	content: "\00a0";
+	display: block;
+	margin-bottom: 5px;
+}
+
+.required:after {
+	content: ' *';
+	color: #D23A3A;
+}
+
+.input-required-error {
+	border: 1px solid #F2DEDE !important;
+    box-shadow: 0px 0px 5px 0px #A94442 !important;
+}
+
+
+.form-table {
+	margin-bottom: 15px;
+	clear: both;
+	display: block;
+}
+
+.form-group div[class*="col-lg-"] > div[class*="col-lg-"]:first-child {
+	padding-left: 0;
+}
+
+.form-group div[class*="col-lg-"] > div[class*="col-lg-"]  + div[class*="col-lg-"]:last-child {
+	padding-right: 0;
+}
+
+
+@media (max-width: 1200px) {
+	.form-group div[class*="col-lg-"] > div[class*="col-lg-"] {
+		padding: 0;
+	}
+}
+
+/** Checkbox */
+.checkbox label span {
+	vertical-align: sub;
+} 
+	 input[type=checkbox]:checked + span {
+		text-decoration: line-through;
+		color: #777;
+	}
+
+
+/** Bread Crumb */
+.breadcrumb {
+	border-radius: 0;
+	padding: 10px 15px;
+	background: #E9ECF2;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+	margin: 0 ;
+	margin-top: 10px;
+}
+
+/* Botões*/
+.btn {
+    min-width: 70px !important;
+    padding: 4px 2px;
+	/*padding: 4px 3px;
+	margin: 1px; */
+	border-radius: 0;
+}
+
+.btn-mini {
+	min-width: 60px !important;
+}
+
+.btn-primary, .btn-danger, .btn-success, .btn-info {
+	color: #FFF !important;
+    box-shadow: none;
+}
+	.btn-primary {
+	    background: #1A63AE !important;
+	    border-color: #1A63AE !important;
+	}
+	
+	.btn-danger {
+	 	background: #D23A3A !important;
+	    border-color: #D23A3A !important;
+	}
+	
+	.btn-success {
+		background: #449D44 !important;
+	    border-color: #449D44 !important;
+	}
+	
+	.btn-info {
+		background: #1AAE88 !important;
+	    border-color: #1AAE88 !important;
+	}
+
+
+a.btn:hover, button:hover {
+	opacity: 0.8;
+}
+
+a.btn:active, button:active {
+	box-shadow: inset 0px 0px 500px rgba(0,0,0,.1);
+	opacity: 1;
+}
+
+/** Fieldset */
+fieldset {
+    border: 1px solid #EEE;
+    padding: 0 15px;
+}
+
+	fieldset legend {
+		width: auto;
+	    padding: 0px 10px;
+	    margin-bottom: 10px;
+	    font-size: 13px;
+	    color: #1AAE88;
+	    font-weight: bold;
+	    border: 0;
+	}
+
+
+/** Painéis */
+.panel.panel-default, .panel.panel-primary {
+	border: 0;
+}
+
+.panel.panel-primary {
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.panel-primary>.panel-heading {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.panel-default>.panel-heading {
+	font-size: 18px !important;
+	font-weight: 300;
+	letter-spacing: 0.025em;
+	height: 66px;
+	line-height: 45px;
+}
+
+.panel-default>.panel-heading, .panel-default>.panel-footer {
+	background: #FFF;
+}
+	.panel-default>.panel-heading {
+		border-bottom: 1px solid #EEE;
+		color: #5F6468;
+	}
+
+	.panel-default>.panel-footer {
+		border-top: 1px solid #EEE;
+	}
+
+.panel-primary>.panel-body{
+	background-color: rgba(245, 245, 245, 0.37);
+}
+
+
+/** Tabs */
+.tab-content {
+	padding: 15px;
+}
+
+.nav-tabs, .nav-tabs li a, .nav-tabs li a:hover, .nav-tabs li.active a, .nav-tabs li.active a:hover,
+.nav-pills li a, .nav-pills li a:hover, .nav-pills li.active a, .nav-pills li.active a:hover {
+	border: 0;
+}
+	.nav-tabs {
+		background: #E9ECF2;
+	}
+	
+	.nav-tabs li a:hover {
+		background: #FFF;
+	}
+
+	.nav-tabs li a, .nav-tabs li a:hover, .nav-tabs li.active a, .nav-tabs li.active a:hover {
+		padding: 15px 20px;
+	}
+
+.nav-pills {
+	padding: 15px;
+	padding-bottom: 0;
+	border-bottom: solid 1px #1AAE88;
+}
+	.nav-pills li a, .nav-pills li a:hover, .nav-pills li.active a, .nav-pills li.active a:hover {
+		padding: 7px 15px;
+		border-radius: 0px;
+	}
+
+	.nav-pills li.active a, .nav-pills li.active a:hover {
+		background: #1AAE88;
+	}
+
+
+/** Tables */
+.table {
+	background: #FFF;
+}
+	.table>thead>tr>th {
+		border-bottom: 1px solid #E6E7E8;
+		vertical-align: middle;
+		height: 50px;
+	}

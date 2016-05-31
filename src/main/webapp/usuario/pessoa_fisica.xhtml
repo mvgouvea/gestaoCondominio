@@ -1,0 +1,77 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+   	<div class="form-group">
+		<div class="col-lg-6">
+			<h:outputLabel for="txtNome" value="#{msg.LABEL_NOME}" styleClass="required" />
+			<h:inputText id="txtNome" value="#{CONTROLLER.usuario.pessoa.nome}" styleClass="form-control"/>
+		</div>
+		
+		<div class="col-lg-6">
+			<h:outputLabel for="txtSobrenome" value="#{msg.LABEL_SOBRENOME}" styleClass="required" />
+			<h:inputText id="txtSobrenome" value="#{CONTROLLER.usuario.pessoa.sobrenome}" styleClass="form-control"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-lg-6">
+			<div class="col-lg-8">
+				<h:outputLabel for="txtEmail" value="#{msg.LABEL_EMAIL}" styleClass="required" />
+				<h:inputText id="txtEmail" value="#{CONTROLLER.usuario.email}" styleClass="form-control" maxlength="100"/>
+			</div>
+			<div class="col-lg-4">
+				<h:outputLabel for="txtTelefone" value="#{msg.LABEL_TELEFONE}" styleClass="required" />
+				<h:inputText id="txtTelefone" value="#{CONTROLLER.usuario.pessoa.telefone}" styleClass="form-control mask-telefone"/>
+			</div>
+		</div>
+
+		<div class="col-lg-6">
+			<div class="col-lg-6">
+				<h:outputLabel for="cmbGenero" value="#{msg.LABEL_GENERO}" styleClass="required" />
+				<h:selectOneMenu id="cmbGenero" value="#{CONTROLLER.usuario.pessoa.tipoGenero}" styleClass="form-control">
+					<f:selectItem itemLabel="#{msg.LABEL_SELECIONE}"/>
+					<f:selectItems value="#{CONTROLLER.tiposGeneros}" var="tipoGenero" itemLabel="#{tipoGenero.descricao}" />
+				</h:selectOneMenu>
+			</div>
+			
+			<div class="col-lg-6">
+				<h:outputLabel for="cmbEstadoCivil" value="#{msg.LABEL_ESTADO_CIVIL}" styleClass="required" />
+				<h:selectOneMenu id="cmbEstadoCivil" value="#{CONTROLLER.usuario.pessoa.tipoEstadoCivil}" styleClass="form-control">
+					<f:selectItem itemLabel="#{msg.LABEL_SELECIONE}"/>
+					<f:selectItems value="#{CONTROLLER.tiposEstadoCivil}" var="tipoEstadoCivil" itemLabel="#{tipoEstadoCivil.descricao}" />
+				</h:selectOneMenu>
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-lg-6">
+			<div class="col-lg-5">
+				<h:outputLabel for="txtRG" value="#{msg.LABEL_RG}" styleClass="required" />
+				<h:inputText id="txtRG" value="#{CONTROLLER.usuario.pessoa.rg}" onkeypress="return somenteNumero(event);" styleClass="form-control" maxlength="10"/>
+			</div>
+			
+			<div class="col-lg-7">
+				<h:outputLabel for="txtCPF" value="#{msg.LABEL_CPF}" styleClass="required" />
+				<h:inputText id="txtCPF" value="#{CONTROLLER.usuario.pessoa.cpf}" styleClass="form-control mask-cpf"/>
+			</div>
+		</div>
+		
+		<div class="col-lg-6">
+			<div class="col-lg-5">
+				<h:outputLabel for="txtDataNascimento" value="#{msg.LABEL_DATA_NASCIMENTO}" styleClass="required" />
+				<p:calendar id="txtDataNascimento" value="#{CONTROLLER.usuario.pessoa.dataNascimento}" pattern="dd/MM/yyyy" mask="true"/>
+			</div>
+		
+			<div class="col-lg-7">
+				<h:outputLabel for="txtCEP" value="#{msg.LABEL_CEP}" styleClass="required" />
+				<h:inputText id="txtCEP" value="#{CONTROLLER.usuario.pessoa.cep}" styleClass="form-control mask-cep">
+					<f:ajax event="change" listener="#{CONTROLLER.buscarEndereco()}" render="panelEndereco"/>
+				</h:inputText>
+			</div>
+		</div>
+	</div>
+</ui:component>

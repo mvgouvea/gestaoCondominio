@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	
+	<ui:define name="breadcrumb">
+		<li class="active">#{msg.MENU_USUARIOS_E_GRUPOS}</li>
+		<li class="active">#{msg.MENU_GRUPOS}</li>
+	</ui:define>
+	
+	<ui:define name="heading">
+		<h:outputText value="#{msg.TITULO_LISTAR_GRUPO}"/>
+	</ui:define>
+	
+	<ui:define name="content">
+		<p:outputPanel id="panelResultado">
+			<p class="descricao">#{msg.LABEL_INF_GRUPO}</p>
+			
+			<ui:include src="grupo/resultado_grupo.xhtml"/>
+			
+			<!-- Ações do Cadastro -->
+			<div class="pull-right">
+				<p:commandButton action="#{grupoController.redirecionarPaginaPrincipal()}" value="#{msg.LABEL_CANCELAR}" styleClass="btn btn-danger"/>
+			
+				<p:commandButton action="#{grupoController.salvar()}" value="#{msg.LABEL_SALVAR_ALTERACOES}" styleClass="btn btn-info" update="panelResultado"/>
+			</div>
+		</p:outputPanel>
+	</ui:define>
+</ui:composition>

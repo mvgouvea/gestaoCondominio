@@ -1,0 +1,104 @@
+/*
+ * custom.css
+ * Copyright (c) BitWork.
+ *
+ * Este software é confidencial e propriedade da BitWork.
+ * Não é permitida sua distribuição ou divulgação do seu conteúdo sem expressa autorização da BitWork.
+ * Este arquivo contém informações proprietárias.
+ *
+ * Arquivo de customização de estilos do PrimeFaces.
+ * 
+ * @author BitWork.
+ */
+ 
+/** font-size: 12px */
+.ui-widget {
+	font-size: 12px;
+}
+
+/** border: none */
+.ui-widget-content {
+	border: none;
+}
+
+/* border-color: #CCC */
+.ui-tabs .ui-tabs-nav li, .ui-tabs .ui-tabs-nav li.ui-tabs-selected, .ui-state-default, .ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default, .ui-datatable tbody td, .ui-widget-header {
+	border-color: #CCC !important;
+}
+
+/** background: #F5F5F5 */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	background: #F5F5F5;
+}
+
+/** background-image: linear-gradient(to bottom, #ffffff, #E6E6E6) */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background-image: -moz-linear-gradient(top, #ffffff, #E6E6E6);
+	background-image: -webkit-linear-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#E6E6E6));
+	background-image: -ms-linear-gradient(top, #ffffff, #E6E6E6);
+	background-image: -o-linear-gradient(top, #ffffff, #E6E6E6);
+	background-image: linear-gradient(to bottom, #ffffff, #E6E6E6);
+}
+
+/** color: #3C4144 */
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+	color: #3C4144;
+}
+
+/** text-shadow: none */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	text-shadow: none;
+}
+
+/** font-weight: normal */
+.ui-state-default, .ui-widget-content .ui-state-default, .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+	font-weight: normal;
+}
+
+/** Tab View */
+.ui-tabs .ui-tabs-nav {
+	background: none;
+	border-bottom: solid 1px #CCC;
+}
+	.ui-tabs .ui-tabs-nav li a {
+		padding: 10px 15px;
+	}
+	
+
+/** Input Text */
+.ui-inputfield, .ui-widget-content .ui-inputfield {
+	background: #fff;
+    padding: 6px 12px;
+    height: 34px;
+    box-shadow: none;
+    line-height: 1.42857143;
+    color: #555;
+}
+
+/** Input Focus */
+.form-control:focus, .ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus {
+	border: 1px solid #30A5FF !important;
+	outline: 0;
+	box-shadow: inset 0px 0px 0px 1px #30A5FF !important;
+}
+
+
+/** Messages */
+.ui-messages-error, .ui-message-error, .ui-messages-info, .ui-message-info {
+	padding: 15px;
+}
+	.ui-messages-error, .ui-message-error, .ui-messages-info, .ui-message-info {
+		padding: 15px;
+		color: #A94442;
+	    background-color: #F2DEDE;
+	    border-color: #EBCCD1;
+	}
+	
+	.ui-messages-info, .ui-message-info  {
+		color: #31708f;
+		background-color: #D9EDF7;
+		border-color: #BCE8F1;
+	}
+	

@@ -1,0 +1,27 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<div class="form-group">
+		<ui:repeat value="#{grupoController.perfis}" var="perfil">
+			<div class="col-lg-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">#{perfil.descricao}</div>
+					<div class="panel-body">
+					
+						<ui:repeat value="#{grupoController.setToLista(perfil.grupos)}" var="grupoPerfil">
+							<div class="checkbox">
+								<label>
+									<h:selectBooleanCheckbox value="#{grupoPerfil.permitido}" disabled="#{grupoPerfil.desabilitado}" />
+									<span>#{grupoPerfil.grupo.descricao}</span>
+								</label>
+							</div>
+						</ui:repeat>
+					</div>
+				</div>
+			</div>
+		</ui:repeat>
+	</div>
+</ui:component>

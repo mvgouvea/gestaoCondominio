@@ -1,0 +1,31 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    <h:form>
+	   	<div class="container-fluid">
+			<div class="navbar-header">
+				<ul class="user-menu">
+					<li class="dropdown pull-right">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">#{gerenciarPerfilController.nomeUsuario}<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#{request.contextPath}/pages/meuPerfil.jsf">#{msg.MENU_MEU_PERFIL}</a></li>
+							<li><a href="#{request.contextPath}/pages/alterarSenha.jsf">#{msg.MENU_ALTERAR_SENHA}</a></li>
+							<li><p:commandLink onclick="PF('popupLogout').show();">#{msg.MENU_SAIR}</p:commandLink></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<p:dialog widgetVar="popupLogout" header="#{msg.TITULO_CONFIRMACAO}" modal="true" height="100" width="300" resizable="false">
+			<p class="text-center">Deseja Realmente sair do sistema?</p>
+			
+			<p class="text-center">
+				<p:commandButton onclick="PF('popupLogout').hide();" value="#{msg.LABEL_NAO}" styleClass="btn btn-danger"/>
+				<h:button outcome="/logout.jsf" value="#{msg.LABEL_SIM}" styleClass="btn btn-success"/>
+			</p>
+		</p:dialog>
+	</h:form>
+</ui:component>

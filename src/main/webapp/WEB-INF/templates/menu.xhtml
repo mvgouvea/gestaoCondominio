@@ -1,0 +1,27 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:sec="http://www.springframework.org/security/tags">
+    
+   	<li class="active"><a href="index.jsf"><span class="icon-home"></span>#{msg.MENU_PAGINA_INICIAL}</a></li>
+	<li class="parent">
+		<a href="#">
+			<span data-toggle="collapse" href="#sub-item-1"><span class="icon-user"></span>#{msg.MENU_USUARIOS_E_GRUPOS}</span>
+		</a>
+		<ul class="children collapse" id="sub-item-1">
+			<li>
+				<a href="#{request.contextPath}/usuario.jsf">#{msg.MENU_USUARIOS}</a>
+			</li>
+			<li>
+				<a href="grupo.jsf">#{msg.MENU_GRUPOS}</a>
+			</li>			
+		</ul>
+	</li>
+	
+	<sec:authorize ifAnyGranted="MANTER_SERVICOS"><li class="active"><a href="servico.jsf"><span class="icon-build"></span>#{msg.MENU_SERVICOS}</a></li></sec:authorize>
+	
+	<li role="presentation" class="divider"></li>
+	<li><a href="/"><span class="icon-sms"></span>Ajuda</a></li>
+	<li><p class="copyright">© 2015 <a href="">BitWork</a><br />Todos os direitos reservados.</p></li>
+</ui:component>

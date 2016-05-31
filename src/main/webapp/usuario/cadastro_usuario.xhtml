@@ -1,0 +1,95 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <p:outputPanel class="form-group" layout="block" rendered="#{CONTROLLER.fornecedor or CONTROLLER.locatario}">
+		<div class="col-lg-6">
+			<h:outputLabel for="cmbNatureza" value="#{msg.LABEL_NATUREZA}" styleClass="required" />
+			<h:selectOneMenu id="cmbNatureza" value="#{CONTROLLER.usuario.pessoa.tipoPessoa}" styleClass="form-control">
+				<f:selectItem itemLabel="#{msg.LABEL_SELECIONE}"/>
+				<f:selectItems value="#{CONTROLLER.tiposPessoa}" var="tipoPessoa" itemLabel="#{tipoPessoa.descricao}" />
+				<f:ajax event="change" render="panelCadastro" />
+			</h:selectOneMenu>
+		</div>
+	</p:outputPanel>
+
+    <p:outputPanel rendered="#{CONTROLLER.pessoaFisica}">
+		<ui:include src="/usuario/pessoa_fisica.xhtml"/>
+	</p:outputPanel>
+	
+	<p:outputPanel rendered="#{!CONTROLLER.pessoaFisica}">
+		<ui:include src="/usuario/pessoa_juridica.xhtml"/>
+	</p:outputPanel>
+	
+	<p:outputPanel id="panelEndereco">
+		<div class="form-group">
+			<div class="col-lg-6">
+				<div class="col-lg-5">
+					<h:outputLabel for="txtEstado" value="#{msg.LABEL_ESTADO}" styleClass="required" />
+					<h:inputText id="txtEstado" value="#{CONTROLLER.usuario.pessoa.estado}" styleClass="form-control" disabled="true"/>
+				</div>
+				
+				<div class="col-lg-7">
+					<h:outputLabel for="txtCidade" value="#{msg.LABEL_CIDADE}" styleClass="required" />
+					<h:inputText id="txtCidade" value="#{CONTROLLER.usuario.pessoa.cidade}" styleClass="form-control" disabled="true"/>
+				</div>
+			</div>
+			
+			<div class="col-lg-6">
+				<div class="col-lg-8">
+					<h:outputLabel for="txtBairro" value="#{msg.LABEL_BAIRRO}" styleClass="required" />
+					<h:inputText id="txtBairro" value="#{CONTROLLER.usuario.pessoa.bairro}" styleClass="form-control" disabled="true" maxlength="50"/>
+				</div>
+				
+				<div class="col-lg-4">
+					<h:outputLabel for="txtNumero" value="#{msg.LABEL_NUMERO}" />
+					<h:inputText id="txtNumero" value="#{CONTROLLER.usuario.pessoa.numero}" styleClass="form-control" maxlength="4"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-lg-6">
+				<h:outputLabel for="txtEndereco" value="#{msg.LABEL_ENDERECO}" styleClass="required" />
+				<h:inputText id="txtEndereco" value="#{CONTROLLER.usuario.pessoa.endereco}" styleClass="form-control" disabled="true" maxlength="80"/>
+			</div>
+			
+			<div class="col-lg-6">
+				<h:outputLabel for="txtComplemento" value="#{msg.LABEL_COMPLEMENTO}" />
+				<h:inputText id="txtComplemento" value="#{CONTROLLER.usuario.pessoa.complemento}" styleClass="form-control" maxlength="80"/>
+			</div>
+		</div>
+	</p:outputPanel>
+
+	<p:outputPanel rendered="#{CONTROLLER.funcionario or CONTROLLER.fornecedor or CONTROLLER.locatario}">
+		<div class="form-group">
+			<div class="col-lg-6">
+				<fieldset>
+					<legend>#{msg.LABEL_SERVICO_PRESTADO}</legend>
+				
+					<div class="form-group">
+						<div class="col-lg-10">
+							<h:selectOneMenu id="cmbSerivo" value="#{CONTROLLER.servico}" styleClass="form-control" converter="entityConverter">
+								<f:selectItem itemLabel="#{msg.LABEL_SELECIONE}"/>
+								<f:selectItems value="#{CONTROLLER.servicos}" var="servico" itemLabel="#{servico.nome}" />
+							</h:selectOneMenu>
+						</div>
+						
+						<div class="col-lg-2">
+							<p:commandButton action="#{CONTROLLER.adicionarServico()}" value="+" update="panelCadastro" styleClass="btn btn-info btn-mini"/>
+						</div>
+					</div>
+					
+					<ui:repeat value="#{CONTROLLER.toLista(CONTROLLER.usuario.pessoa.servicos)}" var="pessoaServico">
+						<div class="form-group">
+							<span class="col-lg-5">#{pessoaServico.servico.nome}</span>
+							<span class="col-lg-1"><p:commandLink action="#{CONTROLLER.removerServico(pessoaServico)}" value="x" update="panelCadastro"/></span>
+						</div>
+					</ui:repeat>
+				</fieldset>
+			</div>
+		</div>
+	</p:outputPanel>
+</ui:component>

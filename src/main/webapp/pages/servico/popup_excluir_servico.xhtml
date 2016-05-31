@@ -1,0 +1,20 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+	
+	<p:dialog id="popupExclusaoServico" header="#{msg.TITULO_CONFIRMACAO}" visible="#{servicoController.exibirModalExclusao}"
+		modal="true" height="100" width="300" resizable="false">
+		
+		<p class="text-center"><h:outputText value="#{msg.MSG007}" /></p>
+		
+		<p class="text-center">
+			<p:commandButton action="#{servicoController.fecharModalExclusao()}" value="#{msg.LABEL_NAO}" styleClass="btn btn-danger"
+				update="panelServico"/>
+					
+			<p:commandButton action="#{servicoController.excluir()}" value="#{msg.LABEL_SIM}" 
+				styleClass="btn btn-success" update="panelServico"/>
+		</p>
+	</p:dialog>
+</ui:component>

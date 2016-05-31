@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/templateLogin.xhtml">
+	
+	<ui:define name="content">
+		<p:outputPanel id="panelLogin">
+			<p:outputPanel rendered="#{autenticarUsuarioController.login}">
+				<div class="title-login">#{msg.TITULO_AUTENTICAR_USUARIO}</div>
+					<div class="form-group">
+						<div class="col-lg-12">
+							<p:inputText value="#{autenticarUsuarioController.email}" styleClass="form-control" placeholder="#{msg.LABEL_EMAIL}" maxlength="100"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<div class="col-lg-12">
+							<p:password value="#{autenticarUsuarioController.senha}" styleClass="form-control" placeholder="#{msg.LABEL_SENHA}" maxlength="15"/>
+						</div>
+					</div>
+			
+					<div class="form-group">
+						<div class="col-lg-12">
+							<p:commandButton action="#{autenticarUsuarioController.validarLogin()}" value="#{msg.LABEL_ENTRAR}" update="panelLogin"
+								styleClass="btn btn-info col-lg-12"/>
+						</div>
+					</div>
+			</p:outputPanel>
+			
+			<p:outputPanel rendered="#{autenticarUsuarioController.alterarSenha}">
+				<div class="title-login">#{msg.TITULO_ALTERAR_SENHA}</div>
+				
+				<div class="form-group">
+					<div class="col-lg-6">
+						<p:password value="#{autenticarUsuarioController.novaSenha}" placeholder="#{msg.LABEL_NOVA_SENHA}" styleClass="form-control" maxlength="15"/>
+					</div>
+					
+					<div class="col-lg-6">
+						<p:password id="txtConfirmarSenha" value="#{autenticarUsuarioController.confirmacaoSenha}" placeholder="#{msg.LABEL_CONFIRMAR_SENHA}"
+							styleClass="form-control" maxlength="15"/>
+					</div>
+				</div>
+					
+				<div class="form-group">
+					<div class="col-lg-12">
+						<p:commandButton action="#{autenticarUsuarioController.salvarSenha()}" value="#{msg.LABEL_ALTERAR}" update="panelLogin"
+							styleClass="btn btn-info col-lg-12"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-12">
+						<p:commandButton action="#{autenticarUsuarioController.cancelar()}" value="#{msg.LABEL_CANCELAR}" update="panelLogin"
+							styleClass="btn btn-danger col-lg-12"/>
+					</div>
+				</div>
+			</p:outputPanel>
+			
+			<p:outputPanel rendered="#{autenticarUsuarioController.recuperarSenha}">
+				<div class="title-login">#{msg.TITULO_ALTERAR_SENHA}</div>
+				
+				<div class="form-group">
+					<div class="col-lg-12">
+						<p:inputText value="#{autenticarUsuarioController.email}" placeholder="#{msg.LABEL_EMAIL}" styleClass="form-control" maxlength="100"/>
+					</div>
+				</div>
+					
+				<div class="form-group">
+					<div class="col-lg-12">
+						<p:commandButton action="#{autenticarUsuarioController.enviarEmailRecuperacaoSenha()}" value="#{msg.LABEL_RECUPERAR_SENHA}" update="panelLogin"
+							styleClass="btn btn-info col-lg-12"/>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-lg-12">
+						<p:commandButton action="#{autenticarUsuarioController.cancelar()}" value="#{msg.LABEL_CANCELAR}" update="panelLogin"
+							styleClass="btn btn-danger col-lg-12"/>
+					</div>
+				</div>
+			</p:outputPanel>
+		</p:outputPanel>
+	</ui:define>
+</ui:composition>
